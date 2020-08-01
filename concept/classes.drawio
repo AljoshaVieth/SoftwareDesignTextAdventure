@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2020-08-01T18:43:53.266Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.163 Safari/537.36" etag="mkDe_JX0AQqm8dDegw0c" version="13.5.8" type="github" pages="6">
+<mxfile host="app.diagrams.net" modified="2020-08-01T18:56:03.304Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.163 Safari/537.36" etag="Q26AhaiStfSITEkZVY2_" version="13.5.8" type="github" pages="6">
   <diagram id="iJRFxwhWg67OS6Esv2Nt" name="Classes">
     <mxGraphModel dx="1412" dy="744" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -135,7 +135,7 @@
         <mxCell id="gAJQmPYiy0jQlU3v2DTC-31" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" parent="gAJQmPYiy0jQlU3v2DTC-29" vertex="1">
           <mxGeometry y="26" width="440" height="54" as="geometry" />
         </mxCell>
-        <mxCell id="gAJQmPYiy0jQlU3v2DTC-32" value="+ createDefaultGame(): GameState&#xa;+ startGame(_state: GameState): void&#xa;+ saveGame(_state: GameState): void&#xa;+ loadGame(_name: string): boolean&#xa;+ readInput(): void&#xa;+ moveAllHumans(): void&#xa;+ quitGame(): void&#xa;+ gamestateJsonIsValid(): void&#xa;+ guessNPC(_name: string): void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="gAJQmPYiy0jQlU3v2DTC-29" vertex="1">
+        <mxCell id="gAJQmPYiy0jQlU3v2DTC-32" value="+ createDefaultGame(): GameState&lt;br&gt;+ startGame(_state: GameState): void&lt;br&gt;+ saveGame(_state: GameState): void&lt;br&gt;+ loadGame(_name: string): boolean&lt;br&gt;+ readInput(): void&lt;br&gt;+ moveAllHumans(): void&lt;br&gt;+ quitGame(): void&lt;br&gt;+ gamestateJsonIsValid(): void&lt;br&gt;+ guessNPC(_name: string): void&lt;br&gt;&lt;i&gt;+ printToConsole(_message: string): void&lt;/i&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;fontStyle=0;html=1;" parent="gAJQmPYiy0jQlU3v2DTC-29" vertex="1">
           <mxGeometry y="80" width="440" height="150" as="geometry" />
         </mxCell>
         <mxCell id="aXbaBo-IbfSS3embsjwy-1" value="Extends" style="endArrow=block;endSize=16;endFill=0;html=1;entryX=0;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" target="lBCTvmOor69x6_L90_RW-8">
@@ -1914,7 +1914,7 @@
         <mxCell id="Cp02YNBJMhg05ji3jDbK-24" value="" style="ellipse;whiteSpace=wrap;html=1;rounded=0;shadow=0;comic=0;labelBackgroundColor=none;strokeColor=#000000;strokeWidth=1;fillColor=#000000;fontFamily=Verdana;fontSize=12;fontColor=#000000;align=center;comic=1" vertex="1" parent="f5v6Imx_qu1TxQYUW6W8-1">
           <mxGeometry y="3210" width="20" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="Cp02YNBJMhg05ji3jDbK-28" value="&lt;div style=&quot;text-align: left&quot;&gt;&lt;span&gt;printToConsole(message: string)&lt;/span&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;shadow=0;glass=0;comic=1;strokeColor=#000000;labelPosition=center;verticalLabelPosition=middle;align=left;verticalAlign=top;absoluteArcSize=1;arcSize=50;" vertex="1" parent="f5v6Imx_qu1TxQYUW6W8-1">
+        <mxCell id="Cp02YNBJMhg05ji3jDbK-28" value="&lt;div style=&quot;text-align: left&quot;&gt;&lt;span&gt;&lt;i&gt;printToConsole(message: string)&lt;/i&gt;&lt;/span&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;shadow=0;glass=0;comic=1;strokeColor=#000000;labelPosition=center;verticalLabelPosition=middle;align=left;verticalAlign=top;absoluteArcSize=1;arcSize=50;" vertex="1" parent="f5v6Imx_qu1TxQYUW6W8-1">
           <mxGeometry x="2" y="3760" width="798" height="160" as="geometry" />
         </mxCell>
         <mxCell id="Cp02YNBJMhg05ji3jDbK-41" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="f5v6Imx_qu1TxQYUW6W8-1" source="Cp02YNBJMhg05ji3jDbK-29" target="Cp02YNBJMhg05ji3jDbK-30">
