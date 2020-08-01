@@ -2,10 +2,11 @@
 var game;
 (function (game) {
     class Player extends game.Creature {
-        constructor(_name, _description, language, inventory) {
+        constructor(_name, _description, _position, language, inventory) {
             super();
             this.name = _name;
             this.description = _description;
+            this.position = _position;
             this.language = language;
             this.inventory = inventory;
         }

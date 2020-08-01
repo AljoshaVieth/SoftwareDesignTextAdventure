@@ -5,10 +5,11 @@ namespace game {
         public inventory: Item[];
 
 
-        constructor(_name: string, _description: string, language: game.Language, inventory: game.Item[]) {
+        constructor(_name: string, _description: string, _position: Room, language: game.Language, inventory: game.Item[]) {
             super();
             this.name = _name;
             this.description = _description;
+            this.position = _position;
             this.language = language;
             this.inventory = inventory;
         }

@@ -57,23 +57,56 @@ namespace game {
         }
 
         moveAllHumans(): void {
-            GameManager.currentGameState.bots.forEach(function (bot){
-               bot.moveRandomly();
+            GameManager.currentGameState.bots.forEach(function (bot) {
+                bot.moveRandomly();
             });
         }
 
         guessNPC(_name: string): void {
-
-            for(let i: number = 0; i< GameManager.currentGameState.bots.length; i++){
+            for (let i: number = 0; i < GameManager.currentGameState.bots.length; i++) {
                 let bot: Human = GameManager.currentGameState.bots[i];
-                if(bot.name == _name){
-                    if(bot.isGuilty){
+                if (bot.name == _name) {
+                    if (bot.isGuilty) {
                         GameManager.printToConsole("Congratulation! You found the guilty one!")
                         return;
                     }
                 }
             }
             GameManager.printToConsole("Not the one we search!");
+        }
+
+        createDefaultGame(_name: string): GameState {
+            let defaultPlayerItem: Item = new Item("defaultPlayerItem", "defaultDescription");
+            let playerInventory: Item[] = [];
+            playerInventory.push(defaultPlayerItem);
+            let defaultRoomItem: Item = new Item("defaultIRoomItem", "defaultDescription");
+            let roomInventory: Item[] = [];
+            roomInventory.push(defaultRoomItem);
+            let defaultNpcItem: Item = new Item("defaultINpctem", "defaultDescription");
+            let npcInventory: Item[] = [];
+            npcInventory.push(defaultNpcItem);
+            let defaultNpcAnswer: string = "defaultNpcAnswer";
+            let npcAnswers: string[] = [];
+            npcAnswers.push(defaultNpcAnswer);
+            let bots: Human[] = [];
+            let defaultNpc: Human = new Human("defaultHuman", "defaultDescription", npcInventory, npcAnswers, false);
+            bots.push(defaultNpc);
+            let defaultRoomPeople: Human[] = [];
+            defaultRoomPeople.push(defaultNpc);
+            let adjacentRooms: Map<Direction, Room> = new Map();
+            let defaultRoom: Room = new Room("defaultRoom", "defaultRoomDescription", roomInventory, defaultRoomPeople, adjacentRooms);
+            let secondAdjacentRooms: Map<Direction, Room> = new Map();
+            secondAdjacentRooms.set(Direction.WEST, defaultRoom);
+            let secondDefaultRoom: Room = new Room("secondDefaultRoom", "defaultRoomDescription", roomInventory, defaultRoomPeople, secondAdjacentRooms);
+            adjacentRooms.set(Direction.EAST, secondDefaultRoom);
+            defaultRoom.adjacentRooms = adjacentRooms;
+            let defaultPlayer: Player = new Player("defaultPlayer", "defaultDescrition", defaultRoom, Language.ENGLISH, playerInventory);
+            let roomsOfHouse: Room[] = [defaultRoom, secondDefaultRoom];
+            let defaultHouse: House = new House("defaultHouse", roomsOfHouse);
+            let currentDate: Date = new Date();
+            let defaultGameState: GameState = new GameState("defaultGameState", "defaultDescription", currentDate, defaultPlayer, defaultHouse, bots);
+            return defaultGameState;
+
         }
 
     }

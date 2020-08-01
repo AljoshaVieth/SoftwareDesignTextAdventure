@@ -68,6 +68,38 @@ var game;
             }
             GameManager.printToConsole("Not the one we search!");
         }
+        createDefaultGame(_name) {
+            let defaultPlayerItem = new game.Item("defaultPlayerItem", "defaultDescription");
+            let playerInventory = [];
+            playerInventory.push(defaultPlayerItem);
+            let defaultRoomItem = new game.Item("defaultIRoomItem", "defaultDescription");
+            let roomInventory = [];
+            roomInventory.push(defaultRoomItem);
+            let defaultNpcItem = new game.Item("defaultINpctem", "defaultDescription");
+            let npcInventory = [];
+            npcInventory.push(defaultNpcItem);
+            let defaultNpcAnswer = "defaultNpcAnswer";
+            let npcAnswers = [];
+            npcAnswers.push(defaultNpcAnswer);
+            let bots = [];
+            let defaultNpc = new game.Human("defaultHuman", "defaultDescription", npcInventory, npcAnswers, false);
+            bots.push(defaultNpc);
+            let defaultRoomPeople = [];
+            defaultRoomPeople.push(defaultNpc);
+            let adjacentRooms = new Map();
+            let defaultRoom = new game.Room("defaultRoom", "defaultRoomDescription", roomInventory, defaultRoomPeople, adjacentRooms);
+            let secondAdjacentRooms = new Map();
+            secondAdjacentRooms.set(game.Direction.WEST, defaultRoom);
+            let secondDefaultRoom = new game.Room("secondDefaultRoom", "defaultRoomDescription", roomInventory, defaultRoomPeople, secondAdjacentRooms);
+            adjacentRooms.set(game.Direction.EAST, secondDefaultRoom);
+            defaultRoom.adjacentRooms = adjacentRooms;
+            let defaultPlayer = new game.Player("defaultPlayer", "defaultDescrition", defaultRoom, game.Language.ENGLISH, playerInventory);
+            let roomsOfHouse = [defaultRoom, secondDefaultRoom];
+            let defaultHouse = new game.House("defaultHouse", roomsOfHouse);
+            let currentDate = new Date();
+            let defaultGameState = new game.GameState("defaultGameState", "defaultDescription", currentDate, defaultPlayer, defaultHouse, bots);
+            return defaultGameState;
+        }
     }
     game.GameManager = GameManager;
 })(game || (game = {}));
