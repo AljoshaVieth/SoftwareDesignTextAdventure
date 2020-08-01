@@ -3,7 +3,6 @@ namespace game {
         public static currentGameState: GameState;
 
 
-
         static printToConsole(_message: string) {
             console.log("Trying to print: '" + _message + "'");
             let consoleDiv: HTMLDivElement = <HTMLDivElement>document.getElementById("console");
@@ -33,7 +32,7 @@ namespace game {
             console.log("Reading input: " + inputText);
             switch (inputText.substring(0, 1)) {
                 case "h":
-                    GameManager.printToConsole("help(h) : shows this message, look(l) : look around, take(t) item: pickup an item, drop(d) item, drop an item, speak(s) npc: speak to a npc, guess(g) npc: guess the npc who is guilty")
+                    GameManager.printToConsole("help(h) : shows this message, look(l) : look around, take(t) item: pickup an item, drop(d) item, drop an item, speak(s) npc: speak to a npc, guess(g) npc: guess the npc who is guilty, examine(e) item: examine an item")
                     break;
                 case "l":
                     GameManager.currentGameState.player.look();
@@ -42,7 +41,7 @@ namespace game {
                     GameManager.currentGameState.player.showInventory();
                     break;
                 case "t":
-                    console.log("Trying to take item{"+inputText.substring(1).trim()+"}");
+                    console.log("Trying to take item{" + inputText.substring(1).trim() + "}");
                     GameManager.currentGameState.player.takeItem(inputText.substring(1).trim());
                     break;
                 case "d":
@@ -57,6 +56,9 @@ namespace game {
                     break;
                 case "g":
                     GameManager.guessNPC(inputText.substring(1).trim());
+                    break;
+                case "e":
+                    GameManager.currentGameState.player.examineItem(inputText.substring(1).trim());
                     break;
                 default:
                     GameManager.printToConsole("Unknown command!");

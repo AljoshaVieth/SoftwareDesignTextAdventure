@@ -51,6 +51,16 @@ var game;
                 game.GameManager.printToConsole("Item not found!");
             }
         }
+        examineItem(_itemName) {
+            let itemFound = this.checkIfArrayContainsDescribable(_itemName, this.inventory);
+            if (itemFound !== false) {
+                let item = this.inventory[itemFound];
+                game.GameManager.printToConsole(item.name + ": " + item.description);
+            }
+            else {
+                game.GameManager.printToConsole("Item not found!");
+            }
+        }
         talkToNPC(_nameOfNPC) {
             let humanFound = this.checkIfArrayContainsDescribable(_nameOfNPC, this.position.people);
             if (humanFound !== false) {

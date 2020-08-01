@@ -31,10 +31,10 @@ namespace game {
             console.log("Trying to take item: [" + _itemName + "]");
             let itemFound = this.checkIfArrayContainsDescribable(_itemName, this.position.inventory);
             console.log("ITEM FOUND = " + itemFound);
-            if(itemFound !== false){
+            if (itemFound !== false) {
                 let item: Item = this.position.inventory[<number>itemFound];
                 this.inventory.push(item);
-                this.position.inventory= this.position.inventory.filter(obj => obj !== item);
+                this.position.inventory = this.position.inventory.filter(obj => obj !== item);
                 this.position.updateLookDescription();
                 GameManager.printToConsole(item.name + "Has been added to your inventory"); //TODO MEthode zum lesen des Items
             } else {
@@ -44,10 +44,10 @@ namespace game {
 
         dropItem(_itemName: string): void {
             let itemFound = this.checkIfArrayContainsDescribable(_itemName, this.inventory);
-            if(itemFound !== false){
+            if (itemFound !== false) {
                 let item: Item = this.inventory[<number>itemFound];
                 this.position.inventory.push(item);
-                this.inventory= this.inventory.filter(obj => obj !== item);
+                this.inventory = this.inventory.filter(obj => obj !== item);
                 this.position.updateLookDescription();
                 GameManager.printToConsole("Item dropped!");
             } else {
@@ -55,9 +55,19 @@ namespace game {
             }
         }
 
+        examineItem(_itemName: string): void {
+            let itemFound = this.checkIfArrayContainsDescribable(_itemName, this.inventory);
+            if (itemFound !== false) {
+                let item: Item = this.inventory[<number>itemFound];
+                GameManager.printToConsole(item.name + ": " + item.description);
+            } else {
+                GameManager.printToConsole("Item not found!");
+            }
+        }
+
         talkToNPC(_nameOfNPC: string): void {
             let humanFound = this.checkIfArrayContainsDescribable(_nameOfNPC, this.position.people);
-            if(humanFound !== false){
+            if (humanFound !== false) {
                 let npc: Human = this.position.people[<number>humanFound];
                 npc.talk();
             } else {
@@ -80,11 +90,11 @@ namespace game {
 
 
         checkIfArrayContainsDescribable(_itemName: string, _inventory: Item[]): number | boolean {
-            console.log("Searching for item ["+ _itemName + "]")
+            console.log("Searching for item [" + _itemName + "]")
             console.log("Inventory length = " + _inventory.length);
-            for(let i = 0; i< _inventory.length; i++){
+            for (let i = 0; i < _inventory.length; i++) {
                 console.log("CurrentItemName: " + _inventory[i].name);
-                if(_inventory[i].name == _itemName){
+                if (_inventory[i].name == _itemName) {
                     console.log("ITEM FOUND!!!!!!!!!!");
                     return i;
                 }
