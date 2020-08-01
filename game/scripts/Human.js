@@ -20,6 +20,7 @@ var game;
                 let index = this.position.people.indexOf(this, 0);
                 this.position.people.splice(index, 1);
                 this.position = adjacentRoom;
+                this.position.updateLookDescription();
             }
         }
         talk() {
