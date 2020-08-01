@@ -55,6 +55,9 @@ var game;
                 case "e":
                     GameManager.currentGameState.player.examineItem(inputText.substring(1).trim());
                     break;
+                case "m":
+                    GameManager.currentGameState.player.move(inputText.substring(1).trim());
+                    break;
                 default:
                     GameManager.printToConsole("Unknown command!");
             }
@@ -98,7 +101,7 @@ var game;
             let defaultRoom = new game.Room("defaultRoom", "defaultRoomDescription", roomInventory, defaultRoomPeople, adjacentRooms);
             let secondAdjacentRooms = new Map();
             secondAdjacentRooms.set(game.Direction.WEST, defaultRoom);
-            let secondDefaultRoom = new game.Room("secondDefaultRoom", "defaultRoomDescription", roomInventory, defaultRoomPeople, secondAdjacentRooms);
+            let secondDefaultRoom = new game.Room("secondDefaultRoom", "secondDefaultRoomDescription", roomInventory, defaultRoomPeople, secondAdjacentRooms);
             defaultRoom.adjacentRooms.set(game.Direction.EAST, secondDefaultRoom);
             let defaultPlayer = new game.Player("defaultPlayer", "defaultDescrition", defaultRoom, game.Language.ENGLISH, playerInventory);
             let roomsOfHouse = [defaultRoom, secondDefaultRoom];

@@ -11,12 +11,18 @@ var game;
             this.inventory = inventory;
         }
         move(_direction) {
-            let currentRoom = this.position;
-            if (currentRoom.adjacentRooms.has(_direction)) {
-                let newRoom = currentRoom.adjacentRooms.get(_direction);
-                this.position = newRoom;
-                game.GameManager.printToConsole("You moved into the " + newRoom.name);
-                game.GameManager.printToConsole(newRoom.description);
+            if (_direction.toUpperCase() in game.Direction) {
+                let direction = game.Direction[_direction.toUpperCase()];
+                let currentRoom = this.position;
+                if (currentRoom.adjacentRooms.has(direction)) {
+                    let newRoom = currentRoom.adjacentRooms.get(direction);
+                    this.position = newRoom;
+                    game.GameManager.printToConsole("You moved into the " + newRoom.name);
+                    game.GameManager.printToConsole(newRoom.description);
+                }
+                else {
+                    game.GameManager.printToConsole("There is no room in this direction!");
+                }
             }
             else {
                 game.GameManager.printToConsole("There is no room in this direction!");

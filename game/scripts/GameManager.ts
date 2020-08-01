@@ -60,6 +60,9 @@ namespace game {
                 case "e":
                     GameManager.currentGameState.player.examineItem(inputText.substring(1).trim());
                     break;
+                case "m":
+                    GameManager.currentGameState.player.move(inputText.substring(1).trim());
+                    break;
                 default:
                     GameManager.printToConsole("Unknown command!");
             }
@@ -106,7 +109,7 @@ namespace game {
             let defaultRoom: Room = new Room("defaultRoom", "defaultRoomDescription", roomInventory, defaultRoomPeople, adjacentRooms);
             let secondAdjacentRooms: Map<Direction, Room> = new Map<Direction, Room>();
             secondAdjacentRooms.set(Direction.WEST, defaultRoom);
-            let secondDefaultRoom: Room = new Room("secondDefaultRoom", "defaultRoomDescription", roomInventory, defaultRoomPeople, secondAdjacentRooms);
+            let secondDefaultRoom: Room = new Room("secondDefaultRoom", "secondDefaultRoomDescription", roomInventory, defaultRoomPeople, secondAdjacentRooms);
             defaultRoom.adjacentRooms.set(Direction.EAST, secondDefaultRoom);
             let defaultPlayer: Player = new Player("defaultPlayer", "defaultDescrition", defaultRoom, Language.ENGLISH, playerInventory);
             let roomsOfHouse: Room[] = [defaultRoom, secondDefaultRoom];

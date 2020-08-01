@@ -1,8 +1,8 @@
 namespace game{
     export enum Direction {
-        NORTH,
-        EAST,
-        WEST,
-        SOUTH
+        NORTH= "NORTH",
+        EAST = "EAST",
+        WEST = "WEST",
+        SOUTH = "SOUTH"
     }
 }

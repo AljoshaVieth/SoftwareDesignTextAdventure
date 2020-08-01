@@ -14,16 +14,22 @@ namespace game {
             this.inventory = inventory;
         }
 
-        move(_direction: Direction): void {
-            let currentRoom: Room = this.position;
-            if (currentRoom.adjacentRooms.has(_direction)) {
-                let newRoom: Room = currentRoom.adjacentRooms.get(_direction);
-                this.position = newRoom;
-                GameManager.printToConsole("You moved into the " + newRoom.name);
-                GameManager.printToConsole(newRoom.description);
+        move(_direction: string): void {
+            if(_direction.toUpperCase() in Direction){
+                let direction = (<any> Direction)[_direction.toUpperCase()]
+                let currentRoom: Room = this.position;
+                if (currentRoom.adjacentRooms.has(direction)) {
+                    let newRoom: Room = currentRoom.adjacentRooms.get(direction);
+                    this.position = newRoom;
+                    GameManager.printToConsole("You moved into the " + newRoom.name);
+                    GameManager.printToConsole(newRoom.description);
+                } else {
+                    GameManager.printToConsole("There is no room in this direction!");
+                }
             } else {
                 GameManager.printToConsole("There is no room in this direction!");
             }
+
         }
 
         takeItem(_itemName: string): void {
