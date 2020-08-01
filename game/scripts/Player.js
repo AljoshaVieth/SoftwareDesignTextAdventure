@@ -23,11 +23,15 @@ var game;
             }
         }
         takeItem(_itemName) {
+            console.log("TAKE ITEMMMMMMMMMMMM");
+            console.log("Trying to take item: [" + _itemName + "]");
             let itemFound = this.checkIfArrayContainsDescribable(_itemName, this.position.inventory);
-            if (itemFound != false) {
+            console.log("ITEM FOUND = " + itemFound);
+            if (itemFound !== false) {
                 let item = this.position.inventory[itemFound];
                 this.inventory.push(item);
-                this.position.inventory.splice(itemFound, 1);
+                this.position.inventory = this.position.inventory.filter(obj => obj !== item);
+                this.position.updateLookDescription();
                 game.GameManager.printToConsole(item.name + "Has been added to your inventory"); //TODO MEthode zum lesen des Items
             }
             else {
@@ -35,11 +39,12 @@ var game;
             }
         }
         dropItem(_itemName) {
-            let itemFound = this.checkIfArrayContainsDescribable(_itemName, this.position.inventory);
-            if (itemFound != false) {
-                let item = this.position.inventory[itemFound];
+            let itemFound = this.checkIfArrayContainsDescribable(_itemName, this.inventory);
+            if (itemFound !== false) {
+                let item = this.inventory[itemFound];
                 this.position.inventory.push(item);
-                this.inventory.splice(itemFound, 1);
+                this.inventory = this.inventory.filter(obj => obj !== item);
+                this.position.updateLookDescription();
                 game.GameManager.printToConsole("Item dropped!");
             }
             else {
@@ -48,7 +53,7 @@ var game;
         }
         talkToNPC(_nameOfNPC) {
             let humanFound = this.checkIfArrayContainsDescribable(_nameOfNPC, this.position.people);
-            if (humanFound != false) {
+            if (humanFound !== false) {
                 let npc = this.position.people[humanFound];
                 npc.talk();
             }
@@ -57,18 +62,22 @@ var game;
             }
         }
         look() {
-            game.GameManager.printToConsole(this.position.description);
+            game.GameManager.printToConsole(this.position.lookDescription);
         }
         showInventory() {
-            let outputMessage = "Inventory: ";
+            let outputMessage = "Inventory: [ ";
             this.inventory.forEach(function (item) {
-                outputMessage = outputMessage + item.name;
+                outputMessage = outputMessage + item.name + " ";
             });
-            game.GameManager.printToConsole(outputMessage);
+            game.GameManager.printToConsole(outputMessage + " ]");
         }
         checkIfArrayContainsDescribable(_itemName, _inventory) {
+            console.log("Searching for item [" + _itemName + "]");
+            console.log("Inventory length = " + _inventory.length);
             for (let i = 0; i < _inventory.length; i++) {
+                console.log("CurrentItemName: " + _inventory[i].name);
                 if (_inventory[i].name == _itemName) {
+                    console.log("ITEM FOUND!!!!!!!!!!");
                     return i;
                 }
             }
