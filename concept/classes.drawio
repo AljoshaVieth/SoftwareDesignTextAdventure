@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2020-08-01T22:15:54.973Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.163 Safari/537.36" etag="zKC8kxVM1mgOc8NHv5IV" version="13.5.8" type="github" pages="6">
+<mxfile host="app.diagrams.net" modified="2020-08-01T22:18:40.174Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.163 Safari/537.36" etag="mQiTzF5MuYorpWeh5COA" version="13.5.8" type="github" pages="6">
   <diagram id="iJRFxwhWg67OS6Esv2Nt" name="Classes">
     <mxGraphModel dx="1412" dy="744" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -9,7 +9,7 @@
             <mxRectangle x="20" y="670" width="90" height="26" as="alternateBounds" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="gAJQmPYiy0jQlU3v2DTC-10" value="- inventory: Item[]&#xa;- answers: string[]&#xa;- isGuilty: boolean" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="gAJQmPYiy0jQlU3v2DTC-9" vertex="1">
+        <mxCell id="gAJQmPYiy0jQlU3v2DTC-10" value="+ inventory: Item[]&#xa;+ answers: string[]&#xa;+ isGuilty: boolean" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="gAJQmPYiy0jQlU3v2DTC-9" vertex="1">
           <mxGeometry y="26" width="320" height="54" as="geometry" />
         </mxCell>
         <mxCell id="gAJQmPYiy0jQlU3v2DTC-11" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" parent="gAJQmPYiy0jQlU3v2DTC-9" vertex="1">
@@ -31,7 +31,7 @@
             <mxRectangle x="20" y="670" width="90" height="26" as="alternateBounds" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="gAJQmPYiy0jQlU3v2DTC-2" value="- inventory: Item[]&#xa;- people: Human[]&#xa;- adjacentRooms: &lt;Direction, Room&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="gAJQmPYiy0jQlU3v2DTC-1" vertex="1">
+        <mxCell id="gAJQmPYiy0jQlU3v2DTC-2" value="+ inventory: Item[]&#xa;+ people: Human[]&#xa;+ adjacentRooms: &lt;Direction, Room&gt;" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="gAJQmPYiy0jQlU3v2DTC-1" vertex="1">
           <mxGeometry y="26" width="270" height="124" as="geometry" />
         </mxCell>
         <mxCell id="gAJQmPYiy0jQlU3v2DTC-3" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" parent="gAJQmPYiy0jQlU3v2DTC-1" vertex="1">
@@ -109,7 +109,7 @@
             <mxRectangle x="20" y="670" width="90" height="26" as="alternateBounds" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="gAJQmPYiy0jQlU3v2DTC-18" value="- language: Language&#xa;- inventory: Item[]" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="gAJQmPYiy0jQlU3v2DTC-17" vertex="1">
+        <mxCell id="gAJQmPYiy0jQlU3v2DTC-18" value="+ language: Language&#xa;+ inventory: Item[]" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="gAJQmPYiy0jQlU3v2DTC-17" vertex="1">
           <mxGeometry y="26" width="590" height="54" as="geometry" />
         </mxCell>
         <mxCell id="gAJQmPYiy0jQlU3v2DTC-19" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" parent="gAJQmPYiy0jQlU3v2DTC-17" vertex="1">
@@ -149,7 +149,7 @@
             <mxRectangle x="20" y="670" width="90" height="26" as="alternateBounds" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="gAJQmPYiy0jQlU3v2DTC-22" value="- name: string&#xa;- rooms: Room[]" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="gAJQmPYiy0jQlU3v2DTC-21" vertex="1">
+        <mxCell id="gAJQmPYiy0jQlU3v2DTC-22" value="+ name: string&#xa;+ rooms: Room[]" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="gAJQmPYiy0jQlU3v2DTC-21" vertex="1">
           <mxGeometry y="30" width="250" height="54" as="geometry" />
         </mxCell>
         <mxCell id="gAJQmPYiy0jQlU3v2DTC-23" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" parent="gAJQmPYiy0jQlU3v2DTC-21" vertex="1">
@@ -1380,7 +1380,7 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="iSVIHOdVEnNhFa3S4764-27" value="printToConsole(&quot;help(h) : shows this message, look(l) : look around,&lt;br&gt;take(t) item: pickup an item, drop(d) item, drop an item, speak(s) npc: speak to a npc, guess(g) npc: guess the npc who is guilty&quot;)" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=50;strokeWidth=1;shadow=0;comic=1;align=center;" vertex="1" parent="f5v6Imx_qu1TxQYUW6W8-1">
+        <mxCell id="iSVIHOdVEnNhFa3S4764-27" value="printToConsole(&quot;help(h) : shows this message, look(l) : look around,&lt;br&gt;take(t) item: pickup an item, drop(d) item, drop an item, speak(s) npc: speak to a npc, guess(g) npc: guess the npc who is guilty, examine(e) examie an item&quot;)" style="rounded=1;whiteSpace=wrap;html=1;absoluteArcSize=1;arcSize=50;strokeWidth=1;shadow=0;comic=1;align=center;" vertex="1" parent="f5v6Imx_qu1TxQYUW6W8-1">
           <mxGeometry x="40" y="2000" width="560" height="60" as="geometry" />
         </mxCell>
         <mxCell id="qgRmGsQZXd2Ujgq6yULa-19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="f5v6Imx_qu1TxQYUW6W8-1" source="iSVIHOdVEnNhFa3S4764-28" target="qgRmGsQZXd2Ujgq6yULa-17">
