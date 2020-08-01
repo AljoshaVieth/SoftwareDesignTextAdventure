@@ -1,4 +1,4 @@
-namespace quiz {
+namespace game {
     import Item = game.Item;
     import Creature = game.Creature;
     import Room = game.Room;

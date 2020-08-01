@@ -1,5 +1,4 @@
 namespace game {
-    import Human = quiz.Human;
 
     export class Player extends Creature {
         public language: Language;

@@ -1,13 +1,11 @@
 namespace game {
-    import Human = quiz.Human;
-
     export class Room extends Describable{
         public inventory: Item[];
         public people: Human[];
         public adjacentRooms: Map<Direction, Room>;
 
 
-        constructor(_name: string, _description: string, _inventory: game.Item[], _people: quiz.Human[], _adjacentRooms: Map<game.Direction, game.Room>) {
+        constructor(_name: string, _description: string, _inventory: Item[], _people: Human[], _adjacentRooms: Map<Direction, Room>) {
             super();
             this.name = _name;
             this.description = _description;

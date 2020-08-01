@@ -1,6 +1,6 @@
 "use strict";
-var quiz;
-(function (quiz) {
+var game;
+(function (game) {
     var Creature = game.Creature;
     var GameManager = game.GameManager;
     class Human extends Creature {
@@ -27,6 +27,6 @@ var quiz;
             GameManager.printToConsole(this.name + ": " + randomAnswer);
         }
     }
-    quiz.Human = Human;
-})(quiz || (quiz = {}));
+    game.Human = Human;
+})(game || (game = {}));
 //# sourceMappingURL=Human.js.map
