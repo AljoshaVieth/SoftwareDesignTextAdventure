@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2020-08-01T18:56:03.304Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.163 Safari/537.36" etag="Q26AhaiStfSITEkZVY2_" version="13.5.8" type="github" pages="6">
+<mxfile host="app.diagrams.net" modified="2020-08-01T19:01:31.297Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.163 Safari/537.36" etag="lmWysexeFq91rX8oQF0C" version="13.5.8" type="github" pages="6">
   <diagram id="iJRFxwhWg67OS6Esv2Nt" name="Classes">
     <mxGraphModel dx="1412" dy="744" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -115,7 +115,7 @@
         <mxCell id="gAJQmPYiy0jQlU3v2DTC-19" value="" style="line;strokeWidth=1;fillColor=none;align=left;verticalAlign=middle;spacingTop=-1;spacingLeft=3;spacingRight=3;rotatable=0;labelPosition=right;points=[];portConstraint=eastwest;" parent="gAJQmPYiy0jQlU3v2DTC-17" vertex="1">
           <mxGeometry y="80" width="590" height="8" as="geometry" />
         </mxCell>
-        <mxCell id="gAJQmPYiy0jQlU3v2DTC-20" value="+ constructor(_name: string, _description: string, _position: Room, _language: Language, _inventory: Item[])&#xa;- move(direction: Direction): boolan&#xa;- talkTo(nameOfNPC: name): boolean&#xa;- look(): void&#xa;- showInventory(): void&#xa;- takeItem(itemName: string): void&#xa;- dropItem(itemName; string): void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="gAJQmPYiy0jQlU3v2DTC-17" vertex="1">
+        <mxCell id="gAJQmPYiy0jQlU3v2DTC-20" value="+ constructor(_name: string, _description: string, _position: Room, _language: Language, _inventory: Item[])&#xa;- move(direction: Direction): void&#xa;- talkTo(nameOfNPC: name): void&#xa;- look(): void&#xa;- showInventory(): void&#xa;- takeItem(itemName: string): void&#xa;- dropItem(itemName; string): void" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="gAJQmPYiy0jQlU3v2DTC-17" vertex="1">
           <mxGeometry y="88" width="590" height="112" as="geometry" />
         </mxCell>
         <mxCell id="lBCTvmOor69x6_L90_RW-14" value="&lt;p style=&quot;margin: 0px ; margin-top: 4px ; text-align: center&quot;&gt;&lt;i&gt;&amp;lt;&amp;lt;enum&amp;gt;&amp;gt;&lt;/i&gt;&lt;br&gt;&lt;b&gt;Language&lt;/b&gt;&lt;/p&gt;&lt;hr size=&quot;1&quot;&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ English&lt;br&gt;+ German&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;+ Frensh&lt;/p&gt;&lt;p style=&quot;margin: 0px ; margin-left: 4px&quot;&gt;&lt;br&gt;&lt;/p&gt;" style="verticalAlign=top;align=left;overflow=fill;fontSize=12;fontFamily=Helvetica;html=1;" parent="1" vertex="1">
@@ -165,7 +165,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="HVpuOK_gywADmabWgQJT" name="Player">
-    <mxGraphModel dx="974" dy="512" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="974" dy="513" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="TaMZxj2qEjQ5K4jSNyGN-0" />
         <mxCell id="TaMZxj2qEjQ5K4jSNyGN-1" parent="TaMZxj2qEjQ5K4jSNyGN-0" />
