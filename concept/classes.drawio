@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2020-08-01T20:05:41.337Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.163 Safari/537.36" etag="BZ_0gurHHxo0UgDUMO2W" version="13.5.8" type="github" pages="6">
+<mxfile host="app.diagrams.net" modified="2020-08-01T20:36:27.820Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.163 Safari/537.36" etag="vNKFSdGhK8TZaqnHdgPX" version="13.5.8" type="github" pages="6">
   <diagram id="iJRFxwhWg67OS6Esv2Nt" name="Classes">
     <mxGraphModel dx="1412" dy="744" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
@@ -923,13 +923,13 @@
         <mxCell id="pSVlJu4jMeYMrQowTgiS-3" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="L2apKdu90qtTLRbOb-8R-0" source="pSVlJu4jMeYMrQowTgiS-0" target="pSVlJu4jMeYMrQowTgiS-1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="pSVlJu4jMeYMrQowTgiS-4" value="&lt;div style=&quot;text-align: left&quot;&gt;defaultPlayer: Player = new Player(&quot;defaultPlayer&quot;, &quot;defaultDescrition&quot;, defaultRoom, Language.English, inventory)&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;comic=1;align=center;" vertex="1" parent="L2apKdu90qtTLRbOb-8R-0">
+        <mxCell id="pSVlJu4jMeYMrQowTgiS-4" value="&lt;div style=&quot;text-align: left&quot;&gt;defaultPlayer: Player = new Player(&quot;defaultPlayer&quot;, &quot;defaultDescrition&quot;, defaultRoom, Language.English, playerInventory)&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;comic=1;align=center;" vertex="1" parent="L2apKdu90qtTLRbOb-8R-0">
           <mxGeometry x="40" y="960" width="760" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="Zir-SMIqvTVjPFhdSgHa-0" value="&lt;div style=&quot;text-align: left&quot;&gt;defaultRoom: Room = new Room(&quot;defaultRoom&quot;, &quot;defaultRoomDescription&quot;, defaultRoomInventory, defaultRoomPeople, adjacentRooms)&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;comic=1;align=center;" vertex="1" parent="L2apKdu90qtTLRbOb-8R-0">
+        <mxCell id="Zir-SMIqvTVjPFhdSgHa-0" value="&lt;div style=&quot;text-align: left&quot;&gt;defaultRoom: Room = new Room(&quot;defaultRoom&quot;, &quot;defaultRoomDescription&quot;, roomInventory, defaultRoomPeople, adjacentRooms)&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;comic=1;align=center;" vertex="1" parent="L2apKdu90qtTLRbOb-8R-0">
           <mxGeometry x="40" y="640" width="760" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="mQXLZ9Uyq5xH8_M4sXxO-2" value="&lt;div style=&quot;text-align: left&quot;&gt;defaultRoomItem: Item = new Item(&quot;defaultIRoomtem&quot;, &quot;defaultDescription&quot;)&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;comic=1;align=center;" vertex="1" parent="L2apKdu90qtTLRbOb-8R-0">
+        <mxCell id="mQXLZ9Uyq5xH8_M4sXxO-2" value="&lt;div style=&quot;text-align: left&quot;&gt;defaultRoomItem: Item = new Item(&quot;defaultIRoomItem&quot;, &quot;defaultDescription&quot;)&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;comic=1;align=center;" vertex="1" parent="L2apKdu90qtTLRbOb-8R-0">
           <mxGeometry x="40" y="160" width="360" height="40" as="geometry" />
         </mxCell>
         <mxCell id="mQXLZ9Uyq5xH8_M4sXxO-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="L2apKdu90qtTLRbOb-8R-0" source="pSVlJu4jMeYMrQowTgiS-1" target="mQXLZ9Uyq5xH8_M4sXxO-2">
@@ -1077,7 +1077,7 @@
         <mxCell id="Vpd_D_srUuFDxKfaIZPa-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="L2apKdu90qtTLRbOb-8R-0" source="Vpd_D_srUuFDxKfaIZPa-0" target="Vpd_D_srUuFDxKfaIZPa-1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="Vpd_D_srUuFDxKfaIZPa-4" value="&lt;div style=&quot;text-align: left&quot;&gt;defaultGameState: GameState = new GameStat(&quot;defaultGameState&quot;, &quot;defaultDescription&quot;, currentDate, defaultPlayer, defaultHouse)&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;comic=1;align=center;" vertex="1" parent="L2apKdu90qtTLRbOb-8R-0">
+        <mxCell id="Vpd_D_srUuFDxKfaIZPa-4" value="&lt;div style=&quot;text-align: left&quot;&gt;defaultGameState: GameState = new GameState(&quot;defaultGameState&quot;, &quot;defaultDescription&quot;, currentDate, defaultPlayer, defaultHouse)&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;comic=1;align=center;" vertex="1" parent="L2apKdu90qtTLRbOb-8R-0">
           <mxGeometry x="40" y="1120" width="760" height="40" as="geometry" />
         </mxCell>
         <mxCell id="04DmZxeRwFeQFR5_nltj-2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="L2apKdu90qtTLRbOb-8R-0" source="04DmZxeRwFeQFR5_nltj-0" target="Vpd_D_srUuFDxKfaIZPa-4">
@@ -1948,7 +1948,7 @@
     </mxGraphModel>
   </diagram>
   <diagram id="JtFAnoubbx-ytqEHkk1Q" name="GameState">
-    <mxGraphModel dx="1177" dy="618" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+    <mxGraphModel dx="1177" dy="620" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
       <root>
         <mxCell id="fTq2usjW5PP9LW8x1VGZ-0" />
         <mxCell id="fTq2usjW5PP9LW8x1VGZ-1" parent="fTq2usjW5PP9LW8x1VGZ-0" />
