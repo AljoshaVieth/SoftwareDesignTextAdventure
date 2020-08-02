@@ -17,9 +17,14 @@ namespace game {
             this.bots = _bots;
         }
 
-        createGameStateFromJSON(): GameState{
-            //TODO
-            return null;
+        static createGameStateFromJSON(json: any): GameState{
+            let adjacentRoom: Map<Direction, Room>= new Map();
+            Object.assign(adjacentRoom, json.player.position.adjacentRooms);
+            let position: Room = new Room("", "", [], [], adjacentRoom);
+            Object.assign(position, json.player.position);
+
+            let player: Player = new Player(json.player.name, json.player.description, position, json.player.language, json.player.inventory);
+            return new GameState(json.name, json.description, json.saveDate, player, json.house, json.bots);
         }
     }
 }

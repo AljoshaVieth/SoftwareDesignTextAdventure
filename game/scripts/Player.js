@@ -29,16 +29,13 @@ var game;
             }
         }
         takeItem(_itemName) {
-            console.log("TAKE ITEMMMMMMMMMMMM");
-            console.log("Trying to take item: [" + _itemName + "]");
             let itemFound = this.checkIfArrayContainsDescribable(_itemName, this.position.inventory);
-            console.log("ITEM FOUND = " + itemFound);
             if (itemFound !== false) {
                 let item = this.position.inventory[itemFound];
                 this.inventory.push(item);
                 this.position.inventory = this.position.inventory.filter(obj => obj !== item);
                 this.position.updateLookDescription();
-                game.GameManager.printToConsole(item.name + "Has been added to your inventory"); //TODO MEthode zum lesen des Items
+                game.GameManager.printToConsole(item.name + " has been added to your inventory");
             }
             else {
                 game.GameManager.printToConsole("Item not found!");
@@ -88,12 +85,8 @@ var game;
             game.GameManager.printToConsole(outputMessage + " ]");
         }
         checkIfArrayContainsDescribable(_itemName, _inventory) {
-            console.log("Searching for item [" + _itemName + "]");
-            console.log("Inventory length = " + _inventory.length);
             for (let i = 0; i < _inventory.length; i++) {
-                console.log("CurrentItemName: " + _inventory[i].name);
                 if (_inventory[i].name == _itemName) {
-                    console.log("ITEM FOUND!!!!!!!!!!");
                     return i;
                 }
             }

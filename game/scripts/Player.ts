@@ -33,16 +33,13 @@ namespace game {
         }
 
         takeItem(_itemName: string): void {
-            console.log("TAKE ITEMMMMMMMMMMMM");
-            console.log("Trying to take item: [" + _itemName + "]");
             let itemFound = this.checkIfArrayContainsDescribable(_itemName, this.position.inventory);
-            console.log("ITEM FOUND = " + itemFound);
             if (itemFound !== false) {
                 let item: Item = this.position.inventory[<number>itemFound];
                 this.inventory.push(item);
                 this.position.inventory = this.position.inventory.filter(obj => obj !== item);
                 this.position.updateLookDescription();
-                GameManager.printToConsole(item.name + "Has been added to your inventory"); //TODO MEthode zum lesen des Items
+                GameManager.printToConsole(item.name + " has been added to your inventory");
             } else {
                 GameManager.printToConsole("Item not found!");
             }
@@ -96,12 +93,8 @@ namespace game {
 
 
         checkIfArrayContainsDescribable(_itemName: string, _inventory: Item[]): number | boolean {
-            console.log("Searching for item [" + _itemName + "]")
-            console.log("Inventory length = " + _inventory.length);
             for (let i = 0; i < _inventory.length; i++) {
-                console.log("CurrentItemName: " + _inventory[i].name);
                 if (_inventory[i].name == _itemName) {
-                    console.log("ITEM FOUND!!!!!!!!!!");
                     return i;
                 }
             }

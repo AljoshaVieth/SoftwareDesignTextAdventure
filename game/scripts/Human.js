@@ -12,10 +12,11 @@ var game;
             this.answers = _answers;
             this.isGuilty = _isGuilty;
         }
-        moveRandomly() {
+        /* move npc randomly (not needed in this small example)
+        moveRandomly(): void{
             let randomNumber = Math.floor(Math.random() * 3);
-            if (randomNumber == 0) {
-                let adjacentRoom = this.position.getRandomAdjacentRoom();
+            if(randomNumber == 0){
+                let adjacentRoom: Room = this.position.getRandomAdjacentRoom();
                 adjacentRoom.people.push(this);
                 let index = this.position.people.indexOf(this, 0);
                 this.position.people.splice(index, 1);
@@ -23,6 +24,7 @@ var game;
                 this.position.updateLookDescription();
             }
         }
+         */
         talk() {
             let randomAnswer = this.answers[Math.floor(Math.random() * this.answers.length)];
             GameManager.printToConsole(this.name + ": " + randomAnswer);

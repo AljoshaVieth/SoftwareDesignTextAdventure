@@ -14,11 +14,26 @@ var game;
             GameManager.currentGameState = _state;
         }
         static saveGame() {
+            // credit: https://github.com/JirkaDellOro/Softwaredesign/blob/master/S20/L07/Main.ts
             let gameStateJSON = JSON.stringify(GameManager.currentGameState);
-            console.log(gameStateJSON); //TODO change
+            console.log(gameStateJSON);
+            let blob = new Blob([gameStateJSON], { type: "text/plain" });
+            let url = window.URL.createObjectURL(blob);
+            //*/ using anchor element for download
+            let downloader;
+            downloader = document.createElement("a");
+            downloader.setAttribute("href", url);
+            downloader.setAttribute("download", "text-adventure-save.json");
+            document.body.appendChild(downloader);
+            downloader.click();
+            document.body.removeChild(downloader);
+            window.URL.revokeObjectURL(url);
         }
         static loadGame(_name) {
-            //TODO
+            //TODO problems while parsing Room object from json
+            let json = JSON.parse('{"name":"defaultGameState","description":"defaultDescription","saveDate":"2020-08-01T22:45:29.486Z","player":{"name":"defaultPlayer","description":"defaultDescrition","position":{"name":"defaultRoom","inventory":[],"people":[{"name":"defaultHuman","description":"defaultDescription","inventory":[{"name":"defaultNpcItem","description":"defaultDescription"}],"answers":["defaultNpcAnswer"],"isGuilty":false}],"adjacentRooms":{},"description":"defaultRoomDescription","lookDescription":"defaultRoomDescription :  Items[  ] _ Humans[ defaultHuman ]"},"language":0,"inventory":[{"name":"defaultPlayerItem","description":"defaultDescription"},{"name":"defaultRoomItem","description":"defaultDescription"}]},"house":{"name":"defaultHouse","rooms":[{"name":"defaultRoom","inventory":[],"people":[{"name":"defaultHuman","description":"defaultDescription","inventory":[{"name":"defaultNpcItem","description":"defaultDescription"}],"answers":["defaultNpcAnswer"],"isGuilty":false}],"adjacentRooms":{},"description":"defaultRoomDescription","lookDescription":"defaultRoomDescription :  Items[  ] _ Humans[ defaultHuman ]"},{"name":"secondDefaultRoom","inventory":[{"name":"defaultRoomItem","description":"defaultDescription"}],"people":[{"name":"defaultHuman","description":"defaultDescription","inventory":[{"name":"defaultNpcItem","description":"defaultDescription"}],"answers":["defaultNpcAnswer"],"isGuilty":false}],"adjacentRooms":{},"description":"secondDefaultRoomDescription","lookDescription":"secondDefaultRoomDescription :  Items[ defaultRoomItem |  ] _ Humans[ defaultHuman ]"}]},"bots":[{"name":"defaultHuman","description":"defaultDescription","inventory":[{"name":"defaultNpcItem","description":"defaultDescription"}],"answers":["defaultNpcAnswer"],"isGuilty":false}]}');
+            this.currentGameState = game.GameState.createGameStateFromJSON(json);
+            return this.currentGameState;
         }
         static readInput() {
             let consoleInput = document.getElementById("consoleInput");
@@ -27,7 +42,7 @@ var game;
             console.log("Reading input: " + inputText);
             switch (inputText.substring(0, 1)) {
                 case "h":
-                    GameManager.printToConsole("help(h) : shows this message, look(l) : look around, take(t) item: pickup an item, drop(d) item, drop an item, speak(s) npc: speak to a npc, guess(g) npc: guess the npc who is guilty, examine(e) item: examine an item");
+                    GameManager.printToConsole("npc: speak to a npc, guess(g) npc: guess the npc who is guilty, examine(e) item: examine an item");
                     break;
                 case "l":
                     GameManager.currentGameState.player.look();
@@ -57,6 +72,7 @@ var game;
                     break;
                 case "m":
                     GameManager.currentGameState.player.move(inputText.substring(1).trim());
+                    this.moveAllHumans();
                     break;
                 default:
                     GameManager.printToConsole("Unknown command!");
@@ -64,7 +80,8 @@ var game;
         }
         static moveAllHumans() {
             GameManager.currentGameState.bots.forEach(function (bot) {
-                bot.moveRandomly();
+                bot.position;
+                //bot.moveRandomly();
             });
         }
         static guessNPC(_name) {
@@ -80,35 +97,74 @@ var game;
             GameManager.printToConsole("Not the one we search!");
         }
         static createDefaultGame(_name) {
-            let defaultPlayerItem = new game.Item("defaultPlayerItem", "defaultDescription");
+            let invitation = new game.Item("Invitation", "Herewith we cordially invite you to our congress in the old manor house. Please be punctual and bring fun");
             let playerInventory = [];
-            playerInventory.push(defaultPlayerItem);
-            let defaultRoomItem = new game.Item("defaultRoomItem", "defaultDescription");
-            let roomInventory = [];
-            roomInventory.push(defaultRoomItem);
-            let defaultNpcItem = new game.Item("defaultNpcItem", "defaultDescription");
-            let npcInventory = [];
-            npcInventory.push(defaultNpcItem);
-            let defaultNpcAnswer = "defaultNpcAnswer";
-            let npcAnswers = [];
-            npcAnswers.push(defaultNpcAnswer);
+            playerInventory.push(invitation);
+            let knife = new game.Item("Knife", "A bloody knife");
+            let salonInventory = [];
+            salonInventory.push(knife);
             let bots = [];
-            let defaultNpc = new game.Human("defaultHuman", "defaultDescription", npcInventory, npcAnswers, false);
-            bots.push(defaultNpc);
-            let defaultRoomPeople = [];
-            defaultRoomPeople.push(defaultNpc);
-            let adjacentRooms = new Map();
-            let defaultRoom = new game.Room("defaultRoom", "defaultRoomDescription", roomInventory, defaultRoomPeople, adjacentRooms);
-            let secondAdjacentRooms = new Map();
-            secondAdjacentRooms.set(game.Direction.WEST, defaultRoom);
-            let secondDefaultRoom = new game.Room("secondDefaultRoom", "secondDefaultRoomDescription", roomInventory, defaultRoomPeople, secondAdjacentRooms);
-            defaultRoom.adjacentRooms.set(game.Direction.EAST, secondDefaultRoom);
-            let defaultPlayer = new game.Player("defaultPlayer", "defaultDescrition", defaultRoom, game.Language.ENGLISH, playerInventory);
-            let roomsOfHouse = [defaultRoom, secondDefaultRoom];
-            let defaultHouse = new game.House("defaultHouse", roomsOfHouse);
+            let salonRoomPeople = [];
+            // People
+            let walterInventory = [];
+            let walterAnswers = ["I'm Walter, I'm sorry I didn't see anything", "Hey"];
+            let walter = new game.Human("Walter", "Congress Speaker", walterInventory, walterAnswers, false);
+            bots.push(walter);
+            salonRoomPeople.push(walter);
+            let susanInventory = [];
+            let susanAnswers = ["I'm Susan, Follow me on Instagram", "Hey, I know you!", "I don´t like Max, I think he is guilty! But it´s just a feeling."];
+            let susan = new game.Human("Susan", "Influencer", susanInventory, susanAnswers, false);
+            bots.push(susan);
+            salonRoomPeople.push(susan);
+            let salonAdjacentRooms = new Map();
+            let salon = new game.Room("Salon", "The main Salon", salonInventory, salonRoomPeople, salonAdjacentRooms);
+            let bathroomInventory = [];
+            let bathroomPeople = [];
+            let hammer = new game.Item("Hammer", "A carpenter's hammer, the carpenter can't be far");
+            bathroomInventory.push(hammer);
+            let bathroomAdjacentRooms = new Map();
+            bathroomAdjacentRooms.set(game.Direction.NORTH, salon);
+            let bathroom = new game.Room("Bathroom", "The bathroom", bathroomInventory, bathroomPeople, bathroomAdjacentRooms);
+            salonAdjacentRooms.set(game.Direction.SOUTH, bathroom);
+            let hallInventory = [];
+            let hallPeople = [];
+            let maxInventory = [];
+            let maxAnswers = ["I'm Max, the carpenter", "Im afraid I don´t know much about the murder", "In the last estate there were many cats and that made life difficult for me with my allergy, but fortunately there are no cats here"];
+            let max = new game.Human("Max", "Carpenter", maxInventory, maxAnswers, false);
+            bots.push(max);
+            hallPeople.push(max);
+            let hallAdjacentRooms = new Map();
+            hallAdjacentRooms.set(game.Direction.EAST, salon);
+            let hall = new game.Room("Hall", "The hall", hallInventory, hallPeople, hallAdjacentRooms);
+            salon.adjacentRooms.set(game.Direction.WEST, hall);
+            salon.adjacentRooms.set(game.Direction.SOUTH, bathroom);
+            let kitchenAdjacentRooms = new Map();
+            kitchenAdjacentRooms.set(game.Direction.EAST, hall);
+            let kitchenInventory = [];
+            let kitchenPeople = [];
+            let antonInventory = [];
+            let antonAnswers = ["Hi, I´m Anton", "I´m the son of the murdered", "Life sucks", "No, I´ve seen nothing!!!"];
+            let anton = new game.Human("Anton", "The son of the murdered", antonInventory, antonAnswers, false);
+            bots.push(anton);
+            kitchenPeople.push(anton);
+            let kitchen = new game.Room("Kitchen", "The kitchen", kitchenInventory, kitchenPeople, kitchenAdjacentRooms);
+            hall.adjacentRooms.set(game.Direction.WEST, kitchen);
+            let herbertInventory = [];
+            let herbertAnswers = ["I'm innocent!", "I just let the cat out!"];
+            let herbert = new game.Human("Herbert", "Janitor", herbertInventory, herbertAnswers, true);
+            bots.push(herbert);
+            let officePeople = [];
+            let officeAdjacentRooms = new Map();
+            officeAdjacentRooms.set(game.Direction.EAST, kitchen);
+            officePeople.push(herbert);
+            let officeInventory = [];
+            let office = new game.Room("Office", "The office", officeInventory, officePeople, officeAdjacentRooms);
+            kitchen.adjacentRooms.set(game.Direction.WEST, office);
+            let defaultPlayer = new game.Player("Tom", "Detective", salon, game.Language.ENGLISH, playerInventory);
+            let roomsOfHouse = [salon, hall, kitchen, bathroom, office];
+            let defaultHouse = new game.House("ManorHouse", roomsOfHouse);
             let currentDate = new Date();
-            defaultPlayer.name = "ANTONNNNN";
-            let defaultGameState = new game.GameState("defaultGameState", "defaultDescription", currentDate, defaultPlayer, defaultHouse, bots);
+            let defaultGameState = new game.GameState("Manor house", "Screams! Something's wrong. You run into the parlor. The host is lying dead on the floor. No one seems to have seen or heard anything.", currentDate, defaultPlayer, defaultHouse, bots);
             GameManager.currentGameState = defaultGameState;
             return defaultGameState;
         }

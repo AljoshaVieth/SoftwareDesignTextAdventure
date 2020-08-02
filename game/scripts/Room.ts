@@ -33,13 +33,12 @@ namespace game {
             let allItems: string = "Items[ ";
             this.inventory.forEach(function (item) {
                 allItems = allItems + item.name + " | ";
-
             })
             allItems = allItems + " ]";
 
             let allHumans: string = "Humans[ ";
             this.people.forEach(function (human) {
-                allHumans = allHumans + human.name;
+                allHumans = allHumans + " " + human.name + " | ";
 
             })
             allHumans = allHumans + " ]";

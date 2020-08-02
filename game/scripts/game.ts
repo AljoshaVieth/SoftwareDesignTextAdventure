@@ -12,8 +12,6 @@ namespace game {
     console.log("finished");
     console.log("printing gamestate...");
 
-    GameManager.saveGame();
-
     console.log("Starting game...")
     GameManager.startGame(state);
 }

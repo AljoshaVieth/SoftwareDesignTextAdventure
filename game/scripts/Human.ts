@@ -1,7 +1,6 @@
 namespace game {
     import Item = game.Item;
     import Creature = game.Creature;
-    import Room = game.Room;
     import GameManager = game.GameManager;
 
     export class Human extends Creature {
@@ -19,6 +18,7 @@ namespace game {
             this.isGuilty = _isGuilty;
         }
 
+        /* move npc randomly (not needed in this small example)
         moveRandomly(): void{
             let randomNumber = Math.floor(Math.random() * 3);
             if(randomNumber == 0){
@@ -30,6 +30,7 @@ namespace game {
                 this.position.updateLookDescription();
             }
         }
+         */
 
         talk(): void {
             let randomAnswer = this.answers[Math.floor(Math.random() * this.answers.length)];

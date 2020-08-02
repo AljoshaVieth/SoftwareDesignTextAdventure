@@ -12,7 +12,6 @@ var game;
     let state = game.GameManager.createDefaultGame("test");
     console.log("finished");
     console.log("printing gamestate...");
-    game.GameManager.saveGame();
     console.log("Starting game...");
     game.GameManager.startGame(state);
 })(game || (game = {}));

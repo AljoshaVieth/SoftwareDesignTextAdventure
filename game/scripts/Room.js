@@ -29,7 +29,7 @@ var game;
             allItems = allItems + " ]";
             let allHumans = "Humans[ ";
             this.people.forEach(function (human) {
-                allHumans = allHumans + human.name;
+                allHumans = allHumans + " " + human.name + " | ";
             });
             allHumans = allHumans + " ]";
             this.lookDescription = this.description + " :  " + allItems + " _ " + allHumans;
