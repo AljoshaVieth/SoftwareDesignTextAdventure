@@ -165,7 +165,7 @@ var game;
             let roomsOfHouse = [salon, hall, kitchen, bathroom, office];
             let defaultHouse = new game.House("ManorHouse", roomsOfHouse);
             let currentDate = new Date();
-            let defaultGameState = new game.GameState("Manor house", "Screams! Something's wrong. You run into the parlor. The host is lying dead on the floor. No one seems to have seen or heard anything.", currentDate, defaultPlayer, defaultHouse, bots);
+            let defaultGameState = new game.GameState("Manor house", "Screams! Something's wrong. You run into the parlor. The host is lying dead on the floor. No one seems to have seen or heard anything. Type h for help.", currentDate, defaultPlayer, defaultHouse, bots);
             GameManager.currentGameState = defaultGameState;
             return defaultGameState;
         }
