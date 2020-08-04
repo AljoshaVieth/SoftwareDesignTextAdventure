@@ -42,7 +42,8 @@ var game;
             console.log("Reading input: " + inputText);
             switch (inputText.substring(0, 1)) {
                 case "h":
-                    GameManager.printToConsole("npc: speak to a npc, guess(g) npc: guess the npc who is guilty, examine(e) item: examine an item");
+                    GameManager.printToConsole("help(h) : shows this message, look(l) : look around,\n" +
+                        "take(t) item: pickup an item, drop(d) item, drop an item, speak(s) npc: speak to a npc, guess(g) npc: guess the npc who is guilty, examine(e) item: examie an item");
                     break;
                 case "l":
                     GameManager.currentGameState.player.look();
